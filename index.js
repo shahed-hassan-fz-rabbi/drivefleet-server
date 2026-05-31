@@ -98,176 +98,178 @@ app.post("/api/auth/logout", (req, res) => {
 
 
 
-app.post("/api/seed", async (req, res) => {
-  try {
-    const { MongoClient } = require("mongodb");
+// app.post("/api/seed", async (req, res) => {
+//   try {
+//     const { MongoClient } = require("mongodb");
 
-    const client = new MongoClient(
-      process.env.MONGODB_URI
-    );
+//     const client = new MongoClient(
+//       process.env.MONGODB_URI
+//     );
 
-    await client.connect();
+//     await client.connect();
 
-    const db = client.db("drivefleet");
+//     const db = client.db("drivefleet");
 
-    const cars = [
-      {
-        name: "Toyota Camry",
-        type: "Sedan",
-        dailyPrice: 45,
-        seats: 5,
-        location: "Dhaka",
-        fuel: "Petrol",
-        description:
-          "A reliable and comfortable sedan perfect for city drives.",
-        image:
-          "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=800&q=80",
-        available: true,
-        bookingCount: 0,
-        userEmail: "admin@drivefleet.com",
-        createdAt: new Date(),
-      },
+//     const cars = [
+//       {
+//         name: "Toyota Camry",
+//         type: "Sedan",
+//         dailyPrice: 45,
+//         seats: 5,
+//         location: "Dhaka",
+//         fuel: "Petrol",
+//         description:
+//           "A reliable and comfortable sedan perfect for city drives.",
+//         image:
+//           "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=800&q=80",
+//         available: true,
+//         bookingCount: 0,
+//         userEmail: "admin@drivefleet.com",
+//         createdAt: new Date(),
+//       },
 
-      {
-        name: "Honda CR-V",
-        type: "SUV",
-        dailyPrice: 65,
-        seats: 7,
-        location: "Chittagong",
-        fuel: "Hybrid",
-        description:
-          "Spacious and fuel-efficient SUV with hybrid technology.",
-        image:
-          "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&q=80",
-        available: true,
-        bookingCount: 0,
-        userEmail: "admin@drivefleet.com",
-        createdAt: new Date(),
-      },
+//       {
+//         name: "Honda CR-V",
+//         type: "SUV",
+//         dailyPrice: 65,
+//         seats: 7,
+//         location: "Chittagong",
+//         fuel: "Hybrid",
+//         description:
+//           "Spacious and fuel-efficient SUV with hybrid technology.",
+//         image:
+//           "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&q=80",
+//         available: true,
+//         bookingCount: 0,
+//         userEmail: "admin@drivefleet.com",
+//         createdAt: new Date(),
+//       },
 
-      {
-        name: "BMW 3 Series",
-        type: "Luxury",
-        dailyPrice: 120,
-        seats: 5,
-        location: "Dhaka",
-        fuel: "Petrol",
-        description:
-          "Experience ultimate luxury and performance with this iconic BMW.",
-        image:
-          "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&q=80",
-        available: true,
-        bookingCount: 0,
-        userEmail: "admin@drivefleet.com",
-        createdAt: new Date(),
-      },
+//       {
+//         name: "BMW 3 Series",
+//         type: "Luxury",
+//         dailyPrice: 120,
+//         seats: 5,
+//         location: "Dhaka",
+//         fuel: "Petrol",
+//         description:
+//           "Experience ultimate luxury and performance with this iconic BMW.",
+//         image:
+//           "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&q=80",
+//         available: true,
+//         bookingCount: 0,
+//         userEmail: "admin@drivefleet.com",
+//         createdAt: new Date(),
+//       },
 
-      {
-        name: "Toyota Hiace",
-        type: "Van",
-        dailyPrice: 80,
-        seats: 12,
-        location: "Sylhet",
-        fuel: "Diesel",
-        description:
-          "Ideal for group travel with spacious seating for up to 12 passengers.",
-        image:
-          "https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800&q=80",
-        available: true,
-        bookingCount: 0,
-        userEmail: "admin@drivefleet.com",
-        createdAt: new Date(),
-      },
+//       {
+//         name: "Toyota Hiace",
+//         type: "Van",
+//         dailyPrice: 80,
+//         seats: 12,
+//         location: "Sylhet",
+//         fuel: "Diesel",
+//         description:
+//           "Ideal for group travel with spacious seating for up to 12 passengers.",
+//         image:
+//           "https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800&q=80",
+//         available: true,
+//         bookingCount: 0,
+//         userEmail: "admin@drivefleet.com",
+//         createdAt: new Date(),
+//       },
 
-      {
-        name: "Hyundai Tucson",
-        type: "SUV",
-        dailyPrice: 70,
-        seats: 5,
-        location: "Dhaka",
-        fuel: "Petrol",
-        description:
-          "Modern SUV with stylish design and advanced features.",
-        image:
-          "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&q=80",
-        available: false,
-        bookingCount: 0,
-        userEmail: "admin@drivefleet.com",
-        createdAt: new Date(),
-      },
+//       {
+//         name: "Hyundai Tucson",
+//         type: "SUV",
+//         dailyPrice: 70,
+//         seats: 5,
+//         location: "Dhaka",
+//         fuel: "Petrol",
+//         description:
+//           "Modern SUV with stylish design and advanced features.",
+//         image:
+//           "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&q=80",
+//         available: false,
+//         bookingCount: 0,
+//         userEmail: "admin@drivefleet.com",
+//         createdAt: new Date(),
+//       },
 
-      {
-        name: "Mercedes C-Class",
-        type: "Luxury",
-        dailyPrice: 150,
-        seats: 5,
-        location: "Dhaka",
-        fuel: "Petrol",
-        description:
-          "The pinnacle of luxury motoring with superior performance.",
-        image:
-          "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&q=80",
-        available: true,
-        bookingCount: 0,
-        userEmail: "admin@drivefleet.com",
-        createdAt: new Date(),
-      },
+//       {
+//         name: "Mercedes C-Class",
+//         type: "Luxury",
+//         dailyPrice: 150,
+//         seats: 5,
+//         location: "Dhaka",
+//         fuel: "Petrol",
+//         description:
+//           "The pinnacle of luxury motoring with superior performance.",
+//         image:
+//           "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&q=80",
+//         available: true,
+//         bookingCount: 0,
+//         userEmail: "admin@drivefleet.com",
+//         createdAt: new Date(),
+//       },
 
-      {
-        name: "Toyota Corolla",
-        type: "Sedan",
-        dailyPrice: 40,
-        seats: 5,
-        location: "Rajshahi",
-        fuel: "Petrol",
-        description:
-          "The world's best-selling car. Reliable, economical, and comfortable.",
-        image:
-          "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80",
-        available: true,
-        bookingCount: 0,
-        userEmail: "admin@drivefleet.com",
-        createdAt: new Date(),
-      },
+//       {
+//         name: "Toyota Corolla",
+//         type: "Sedan",
+//         dailyPrice: 40,
+//         seats: 5,
+//         location: "Rajshahi",
+//         fuel: "Petrol",
+//         description:
+//           "The world's best-selling car. Reliable, economical, and comfortable.",
+//         image:
+//           "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80",
+//         available: true,
+//         bookingCount: 0,
+//         userEmail: "admin@drivefleet.com",
+//         createdAt: new Date(),
+//       },
 
-      {
-        name: "Ford Ranger",
-        type: "Pickup",
-        dailyPrice: 90,
-        seats: 5,
-        location: "Chittagong",
-        fuel: "Diesel",
-        description:
-          "Tough and capable pickup truck perfect for work and adventure.",
-        image:
-          "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
-        available: true,
-        bookingCount: 0,
-        userEmail: "admin@drivefleet.com",
-        createdAt: new Date(),
-      },
-    ];
+//       {
+//         name: "Ford Ranger",
+//         type: "Pickup",
+//         dailyPrice: 90,
+//         seats: 5,
+//         location: "Chittagong",
+//         fuel: "Diesel",
+//         description:
+//           "Tough and capable pickup truck perfect for work and adventure.",
+//         image:
+//           "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+//         available: true,
+//         bookingCount: 0,
+//         userEmail: "admin@drivefleet.com",
+//         createdAt: new Date(),
+//       },
+//     ];
 
-    await db.collection("cars").insertMany(cars);
+//     await db.collection("cars").insertMany(cars);
 
-    await client.close();
+//     await client.close();
 
-    res.json({
-      message: "Seeded successfully",
-      count: cars.length,
-    });
+//     res.json({
+//       message: "Seeded successfully",
+//       count: cars.length,
+//     });
 
-  } catch (error) {
-    res.status(500).json({
-      message: "Seed failed",
-      error: error.message,
-    });
-  }
-});
+//   } catch (error) {
+//     res.status(500).json({
+//       message: "Seed failed",
+//       error: error.message,
+//     });
+//   }
+// });
 
 
 
 // Routes
+
+
 app.use("/api/cars", carRoutes);
 app.use("/api/bookings", bookingRoutes);
 
