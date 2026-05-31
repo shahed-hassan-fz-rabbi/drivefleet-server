@@ -12,6 +12,8 @@ const PORT = process.env.PORT || 5000;
 
 
 
+
+
 // CORS
 app.use(
   cors({
@@ -280,6 +282,10 @@ app.get("/", (req, res) => {
   res.json({
     message: "DriveFleet Server is running!",
   });
+});
+
+app.get("/ping", (req, res) => {
+  res.json({ status: "alive" });
 });
 
 
