@@ -2,11 +2,11 @@
 
 Express.js + MongoDB backend for the DriveFleet car rental platform.
 
-## 🌐 Live Server
+## Live Server
 
 **https://drivefleet-server-iy4v.onrender.com**
 
-## ✨ Features
+## Features
 
 - JWT authentication with HTTPOnly cookies and Bearer token support
 - Cars CRUD API with search and filter using $regex operator
@@ -15,20 +15,20 @@ Express.js + MongoDB backend for the DriveFleet car rental platform.
 - CORS configured for Vercel deployment
 - Ping endpoint for Render keep-alive via cron-job.org
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - Node.js, Express.js
 - MongoDB Native Driver
 - JWT, Cookie Parser, CORS, dotenv
 
-## 🚀 Getting Started
+## Getting Started
 
 ```bash
 npm install
 npm run dev
 ```
 
-## 🔑 Environment Variables
+## Environment Variables
 
 ```env
 MONGODB_URI=your_mongodb_uri
@@ -38,7 +38,7 @@ NODE_ENV=production
 PORT=5000
 ```
 
-## 📡 API Routes
+## API Routes
 
 **Auth**
 
@@ -66,7 +66,7 @@ POST   /api/bookings
 DELETE /api/bookings/:id
 ```
 
-## 👨‍💻 Developer
+## Owner
 
 **Shahed Hassan FZ Rabbi**
 GitHub: https://github.com/shahed-hassan-fz-rabbi
